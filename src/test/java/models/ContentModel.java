@@ -1,0 +1,18 @@
+package models;
+
+public class ContentModel {
+
+    String content;
+
+    public String getContent()
+    {
+        return content;
+    }
+
+    public void setContent(String content)
+    {
+        this.content = content;
+    }
+
+}
+
