@@ -181,12 +181,6 @@
                         <goals>
                             <goal>aggregate</goal>
                         </goals>
-						<configuration>
-							<projectProperties>
-								<value>tags=${test.tags}</value>
-								<value>env=${test.env}</value>
-							</projectProperties>
-						</configuration>
                     </execution>
                 </executions>
             </plugin>

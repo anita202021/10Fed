@@ -120,6 +120,7 @@ public class UserManagementSteps {
 
     @And("^User verify status and takes necessary actions to change the status$")
     public void userVerifyStatusAndTakesNecessaryActionsToChangeTheStatus() {
+        vendor.tapOnActionButton();
         users.changeUserStatus();
     }
 

@@ -4,13 +4,17 @@ import com.gargoylesoftware.htmlunit.javascript.host.Window;
 import models.DetailsModel;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.scheduling.ThucydidesFluentWait;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.apache.commons.configuration.ConfigurationException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.LoadProperties;
 import utilities.RandomGenerator;
 
@@ -24,9 +28,6 @@ public class UserManagementPage extends PageObject {
     private DetailsModel detailsModel = new DetailsModel();
     String userStatus;
     private VendorManagementPage vendor;
-
-    //String userNameStored = LoadProperties.getValueFromPropertyFile("testData", "name");
-    // String surnameStored = LoadProperties.getValueFromPropertyFile("testData", "surname");
 
     @FindBy(xpath = "//span[text()='Users']")
     private WebElementFacade userLink;
@@ -137,7 +138,6 @@ public class UserManagementPage extends PageObject {
         enterValueInSurname();
         enterValueInEmail();
         enterValueInPhone();
-
     }
 
     public void selectRole(String roles) {
@@ -197,7 +197,7 @@ public class UserManagementPage extends PageObject {
     }
 
     public void verifyUserName() {
-        waitABit(5000);
+        waitABit(6000);
         WebElementFacade firstName = element(userNameSearch(1));
         withTimeoutOf(20, TimeUnit.SECONDS).waitFor(firstName).shouldBeVisible();
         int num = getDriver().findElements(By.xpath("//tbody/tr")).size();
@@ -226,7 +226,6 @@ public class UserManagementPage extends PageObject {
                 Assert.assertEquals("Personnel", vType);
             }
         }
-
     }
 
     private By statusInTable(int count) {
@@ -291,6 +290,7 @@ public class UserManagementPage extends PageObject {
     }
 
     public void tapOnBellIcon() {
+        waitABit(2000);
         withTimeoutOf(50, TimeUnit.SECONDS).waitFor(notificationIcon).click();
         waitABit(1000);
     }

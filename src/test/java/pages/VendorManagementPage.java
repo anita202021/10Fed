@@ -37,7 +37,8 @@ public class VendorManagementPage extends PageObject {
 
     @FindBy(xpath = "//button[contains(text(),'Submit')]")
     private WebElementFacade submitButton;
-    @FindBy(xpath = "//span[text()=' payal Gaur ']/../../..//p")
+    //@FindBy(xpath = "//span[text()=' payal Gaur ']/../../..//p")
+    @FindBy(xpath = "//div[@class='kt-widget3__item ng-star-inserted']//p")
     private List<WebElementFacade> activityList;
     @FindBy(xpath = "//a[text()='Cancel']")
     private WebElementFacade cancelButton;
@@ -182,7 +183,7 @@ public class VendorManagementPage extends PageObject {
     }
 
     public void tapOnSubmitButton() {
-        withTimeoutOf(40, TimeUnit.SECONDS).waitFor(submitButton).click();
+        withTimeoutOf(40, TimeUnit.SECONDS).waitFor(submitButton).waitUntilVisible().click();
     }
 
     public void vendorDetailsVerify() {
@@ -196,20 +197,26 @@ public class VendorManagementPage extends PageObject {
         Assert.assertEquals(detailsModel.getAccountNo().toString(), element(vendorDetail("Account Number")).getText());
     }
 
-    public void saveUserName() throws IOException, ConfigurationException {
-        WebElementFacade nameInDetail = element(vendorDetail("Name"));
-        withTimeoutOf(20, TimeUnit.SECONDS).waitFor(nameInDetail);
-        LoadProperties.saveValueInPropertiesFile("nameInDetail", nameInDetail.getText(), "testData");
-    }
+//    public void saveUserName() throws IOException, ConfigurationException {
+//        WebElementFacade nameInDetail = element(vendorDetail("Name"));
+//        withTimeoutOf(20, TimeUnit.SECONDS).waitFor(nameInDetail);
+//        LoadProperties.saveValueInPropertiesFile("nameInDetail", nameInDetail.getText(), "testData");
+//    }
 
     public void tapOnCancelButton() {
         withTimeoutOf(40, TimeUnit.SECONDS).waitFor(cancelButton).waitUntilClickable().click();
     }
 
     public void tapOnEditIcon() {
-        WebElementFacade editIcon = element(editIconForAUser(LoadProperties.getValueFromPropertyFile("testData", "name")));
+        WebElementFacade editIcon = element("//em[@title='Edit']");
         withTimeoutOf(20, TimeUnit.SECONDS).waitFor(editIcon).click();
     }
+
+    public void tapOnEditUnitIcon() {
+        WebElementFacade editIcon = element("//em[@title='Edit']");
+        withTimeoutOf(20, TimeUnit.SECONDS).waitFor(editIcon).click();
+    }
+
 
     public void verifyEditIconIsNotDisplayed() {
         WebElementFacade editIconForAdmin = element(editIconForAUser(LoadProperties.getValueFromPropertyFile("testData", "name")));
@@ -217,14 +224,12 @@ public class VendorManagementPage extends PageObject {
     }
 
     public void tapOnNameLink() {
-        //waitABit(1000);
-        // WebElementFacade nameLink = element(storedName(LoadProperties.getValueFromPropertyFile("testData", "name")));
-        withTimeoutOf(60, TimeUnit.SECONDS).waitFor(nameLink).waitUntilVisible().click();
         waitABit(1000);
+        withTimeoutOf(60, TimeUnit.SECONDS).waitFor(nameLink).waitUntilVisible().click();
     }
 
     public void tapOnActionButton() {
-        waitABit(1000);
+        waitABit(5000);
         withTimeoutOf(40, TimeUnit.SECONDS).waitFor(actionButton).click();
     }
 

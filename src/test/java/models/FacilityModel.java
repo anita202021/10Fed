@@ -11,6 +11,8 @@ public class FacilityModel {
     private String typeOfConstruction;
     private String companyId;
     private String unitName;
+    private String groupA;
+    private String groupB;
 
     public String getPmEmail() {
         return pmEmail;
@@ -83,5 +85,21 @@ public class FacilityModel {
 
     public void setUnitName(String unitName) {
         this.unitName = unitName;
+    }
+
+    public String getGroupA(boolean add) {
+        return groupA;
+    }
+
+    public void setGroupA(String groupA) {
+        this.groupA = groupA;
+    }
+
+    public String getGroupB(boolean add) {
+        return groupB;
+    }
+
+    public void setGroupB(String groupB) {
+        this.groupB = groupB;
     }
 }

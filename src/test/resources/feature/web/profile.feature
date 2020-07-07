@@ -1,4 +1,3 @@
-@Phase1
 Feature: Functionality of profile
 
   Background:

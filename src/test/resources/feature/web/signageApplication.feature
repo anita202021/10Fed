@@ -1,10 +1,9 @@
-@smoke
 Feature: Functionality of signage application
 
-#  Background:
-#    Given User is on work order sign in page
-#    When User sign in with valid credential of Account Owner
-#    And User click on side menu of "Manage Kiosk" button
+  Background:
+    Given User is on work order sign in page
+    When User sign in with valid credential of Account Owner
+    And User click on side menu of "Manage Kiosk" button
 
   Scenario: To verify user redirects to the kiosk page
     Given user is on the manage kiosk page of workorder application

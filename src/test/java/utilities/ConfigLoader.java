@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ConfigLoader {
     public static Config config = ConfigFactory.load("env");
-    public static String environment = System.getProperty("env") == null ? "test" : System.getProperty("env");
+    public static String environment = System.getProperty("env") == null ? "dev" : System.getProperty("env");
     private static final Logger log = LoggerFactory.getLogger(ConfigLoader.class);
 
     public static Config load() {

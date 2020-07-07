@@ -57,7 +57,7 @@ public class DashboardPage extends PageObject {
     }
 
     public void tapOnMenuItems(String module) {
-        waitABit(1000);
+        waitABit(3000);
         element(menuItems(module)).withTimeoutOf(20, TimeUnit.SECONDS).click();
     }
 

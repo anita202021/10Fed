@@ -1,4 +1,3 @@
-@Phase1
 Feature: Company module
 
   Background:

@@ -188,8 +188,7 @@ public class VendorManagementSteps {
     }
 
     @When("^User clicks on delete button$")
-    public void userClicksOnDeleteButton() throws IOException, ConfigurationException {
-        vendor.saveUserName();
+    public void userClicksOnDeleteButton() {
         vendor.tapOnActionButton();
         vendor.clickOnDeleteButton();
     }
